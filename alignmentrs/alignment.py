@@ -413,9 +413,9 @@ class BaseAlignment(AlignmentMatrix):
                 # get int position in self.ids and then use subset
                 i = [self.ids.index(idx) for idx in i]
             else:
-                raise ValueError('i must be a list of int or str')
+                raise TypeError('i must be a list of int or str')
         else:
-            raise ValueError('i must be an int or str or a list of int or str')
+            raise TypeError('i must be an int or str or a list of int or str')
         return self.__class__.subset(self, rows=i)
 
     def get_samples_as_str(self, i):
@@ -459,9 +459,9 @@ class BaseAlignment(AlignmentMatrix):
                 # get int position in self.ids and then use subset
                 i = [self.ids.index(idx) for idx in i]
             else:
-                raise ValueError('i must be a list of int or str')
+                raise TypeError('i must be a list of int or str')
         else:
-            raise ValueError('i must be an int or str or a list of int or str')
+            raise TypeError('i must be an int or str or a list of int or str')
         super().remove_samples(i)
 
     def get_sites(self, i):
@@ -479,17 +479,14 @@ class BaseAlignment(AlignmentMatrix):
         """
         if isinstance(i, int):
             return self.__class__.subset(self, rows=i)
-        # same as above
-        elif isinstance(i,str):
-            i = self.ids.index(i) # gets id index from id
-            return self.__class__.subset(self, rows=i)  # retrieve info with id
+        
         elif isinstance(i, list):
             if len(i) == sum((isinstance(j, int) for j in i)):
                 return self.__class__.subset(self, rows=i)
             else:
-                raise ValueError('i must be a list of int')
+                raise TypeError('i must be a list of int')
         else:
-            raise ValueError('i must be an int or str or a list of int or str')
+            raise TypeError('i must be an int or a list of ints')
         return self.__class__.subset(self, cols=i)
 
     def get_sites_as_str(self, i):
