@@ -111,12 +111,12 @@ class Alignment:
 
     @property
     def sample_ids(self):
-        """list of str: Returns the list of sample sequences."""
+        """list of str: Returns the list of sample ids."""
         return self.samples.ids
 
     @property
     def sample_descriptions(self):
-        """list of str: Returns the list of sample sequences."""
+        """list of str: Returns the list of sample descriptions."""
         return self.samples.descriptions
 
     @property
@@ -126,21 +126,21 @@ class Alignment:
 
     @property
     def marker_ids(self):
-        """list of str: Returns the list of sample sequences."""
+        """list of str: Returns the list of marker ids."""
         if not self.markers:
             return []
         return self.markers.ids
 
     @property
     def marker_descriptions(self):
-        """list of str: Returns the list of sample sequences."""
+        """list of str: Returns the list of marker descriptions."""
         if not self.markers:
             return []
         return self.markers.descriptions
 
     @property
     def marker_sequences(self):
-        """list of str: Returns the list of sample sequences."""
+        """list of str: Returns the list of marker sequences."""
         if not self.markers:
             return []
         return self.markers.sequences
